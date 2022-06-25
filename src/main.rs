@@ -1,9 +1,9 @@
-use anyhow::{Context, Result};
+use url::percent_encoding::percent_decode;
 
-fn main() -> Result<()> {
-    let path = "test.txt";
-    let content = std::fs::read_to_string(path)
-        .with_context(|| format!("could not read file `{}`", path))?;
-    println!("file content: {}", content);
-    Ok(())
+fn main() {
+    let args: Vec<String> = std::env::args().collect();
+    let input = &args[1];
+
+    let decoded = percent_decode(input.as_bytes()).decode_utf8();
+    println!("{}", decoded.unwrap());
 }
