@@ -29,7 +29,7 @@ mod tests {
         let input = r##"%20%21%22%23%24%25%26%27%28%29%2A%2B%2C%2D%2E%2F0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ `"##;
         let actual = decode(input);
         assert_eq!(expected, actual);
-    }git 
+    }
 
     #[test]
     #[should_panic]
